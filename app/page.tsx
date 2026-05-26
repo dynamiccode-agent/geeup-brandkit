@@ -109,6 +109,85 @@ const marqueeItems = [
   { text: "LETS GEE UP",      color: "#F2F2FF" },
 ];
 
+/* ─── STRATEGY DATA ───────────────────────────────────────────── */
+const brandStrategy = {
+  enemyStatement: "For too long, the RTD shelf looked the same. Safe flavours. Beige packaging. Corporate marketing written by committee for nobody. Every brand played it quiet, played it for everyone — which meant it stood out to no one.",
+  enemies: [
+    { label: "Safe Flavours",  desc: "Chosen to offend nobody. Remembered by nobody.", color: "#00C8FF" },
+    { label: "Beige Packaging",desc: "Designed to fit in. Invisible from three metres.", color: "#FF4D8A" },
+    { label: "Corporate Tone", desc: "Speaks in press releases. Zero personality.",    color: "#39FF14" },
+  ],
+  positioning: "For 18–28 year old social drinkers who want their drinks as loud as their night, Gee Up Vodka is the flavour-coded vodka premix that makes the can itself the vibe — because every SKU is a fully designed colour world, not just a drink in a can.",
+  essence: "Make every moment louder.",
+  promise: "Your can is the vibe. The energy starts before the first sip.",
+  origin: "We looked at the RTD shelf and saw a sea of safe. Every brand played it quiet, played it beige, played it for everyone. So we built something loud on purpose — a flavour-coded system where the bottle is the vibe before you even open it.",
+};
+
+const personalityDials = [
+  { label: "Formal",       opposite: "Casual",      value: 9,  color: "#00C8FF" },
+  { label: "Rational",     opposite: "Emotional",   value: 8,  color: "#FF4D8A" },
+  { label: "Serious",      opposite: "Playful",     value: 9,  color: "#39FF14" },
+  { label: "Conservative", opposite: "Bold",        value: 10, color: "#A020F0" },
+  { label: "Reserved",     opposite: "Opinionated", value: 8,  color: "#FF00CC" },
+  { label: "Complex",      opposite: "Simple",      value: 9,  color: "#00C8FF" },
+  { label: "Polish",       opposite: "Raw",         value: 5,  color: "#FF4D8A" },
+];
+
+const weAreXNotY = [
+  { x: "Loud",         notY: "Aggressive",   color: "#00C8FF" },
+  { x: "Playful",      notY: "Immature",     color: "#FF4D8A" },
+  { x: "Vibrant",      notY: "Garish",       color: "#39FF14" },
+  { x: "Direct",       notY: "Blunt",        color: "#A020F0" },
+  { x: "Unapologetic", notY: "Reckless",     color: "#FF00CC" },
+];
+
+const bannedWords = ["premium","refreshing","smooth","crisp","craft","artisanal","sophisticated","elevated","curated","authentic","quality","innovative"];
+
+const taglineOptions = [
+  {
+    line: "Hits the Spot.",
+    color: "#00C8FF", status: "Primary",
+    trigger: "Satisfaction + instant connection",
+    tone: "Conversational, punchy, versatile across all contexts",
+    customer: "I got exactly what I needed",
+    brand: "Self-assured. Knows what it delivers.",
+  },
+  {
+    line: "Get Loud. Get Going.",
+    color: "#FF4D8A", status: "Campaign",
+    trigger: "Motivation + identity-first",
+    tone: "Command energy, action-first, creates momentum",
+    customer: "This is my signal to start the night",
+    brand: "The catalyst. Makes pre-drinks feel like the main event.",
+  },
+  {
+    line: "Zero Chill. All Flavour.",
+    color: "#39FF14", status: "Challenger",
+    trigger: "Rebellion + anti-blandness",
+    tone: "Anti-corporate, bold, contrast-rich",
+    customer: "I don't do boring",
+    brand: "The antithesis of every safe RTD on the shelf.",
+  },
+];
+
+const jtbd = [
+  {
+    type: "Functional", color: "#00C8FF",
+    job: "Get pre-drinks sorted fast without settling for whatever's left on the shelf.",
+    insight: "Decision time at the bottle shop is 90 seconds. The can needs to choose itself.",
+  },
+  {
+    type: "Emotional", color: "#FF4D8A",
+    job: "Feel like the night is already starting — energy and anticipation before the first sip.",
+    insight: "The purchase is part of the ritual. Holding a Gee Up is already holding the vibe.",
+  },
+  {
+    type: "Social", color: "#39FF14",
+    job: "Signal to your crew (and your followers) that you've got taste and you're not boring.",
+    insight: "The colour-coded system is inherently shareable. The can is content.",
+  },
+];
+
 /* ─── SCROLL REVEAL ───────────────────────────────────────────── */
 function useScrollReveal() {
   useEffect(() => {
@@ -315,7 +394,7 @@ export default function Home() {
       <div className="grain-overlay" aria-hidden />
 
       {/* ── NAV ─────────────────────────────────────────────── */}
-      <nav style={{
+      <nav className="nav-bar" style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
         background: "rgba(7,7,16,0.9)", backdropFilter: "blur(20px)",
         borderBottom: "1px solid var(--brand-border)",
@@ -323,8 +402,8 @@ export default function Home() {
         justifyContent: "space-between", height: "60px",
       }}>
         <img src="/images/logo-white.svg" alt="Gee Up Vodka" style={{ height: "28px", width: "auto" }} />
-        <div style={{ display: "flex", gap: "36px" }}>
-          {["identity","colours","typography","skus","voice","applications"].map(item => (
+        <div className="nav-links" style={{ display: "flex", gap: "28px" }}>
+          {["strategy","identity","colours","typography","skus","messaging","voice","applications"].map(item => (
             <a key={item} href={`#${item}`} className="nav-link">{item}</a>
           ))}
         </div>
@@ -400,7 +479,7 @@ export default function Home() {
           </p>
 
           {/* Bottle lineup with caps above */}
-          <div className="anim-slide-up" style={{
+          <div className="anim-slide-up hero-lineup" style={{
             display: "flex", alignItems: "flex-end", justifyContent: "center",
             gap: "clamp(12px, 2.5vw, 32px)", animationDelay: "360ms",
           }}>
@@ -434,12 +513,94 @@ export default function Home() {
       {/* ── MARQUEE ───────────────────────────────────────────── */}
       <MarqueeStrip />
 
+      {/* ── 00 BRAND STRATEGY ─────────────────────────────────── */}
+      <section id="strategy" className="s-alt" style={{
+        padding: "120px 48px",
+        background: "#08080F",
+        borderTop: "1px solid rgba(255,255,255,0.04)",
+        borderBottom: "1px solid rgba(255,255,255,0.04)",
+      }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div className="section-label reveal" style={{ marginBottom: "20px" }}>00 / Brand Strategy</div>
+          <div className="divider" style={{ marginBottom: "64px" }} />
+
+          {/* Enemy */}
+          <div className="reveal" style={{ marginBottom: "72px" }}>
+            <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "13px", letterSpacing: "5px", color: "#FF4D8A", marginBottom: "24px" }}>THE ENEMY</div>
+            <blockquote style={{
+              fontFamily: "Anton, sans-serif",
+              fontSize: "clamp(26px, 3.5vw, 48px)",
+              lineHeight: 1.08, color: "#F2F2FF", letterSpacing: "-0.5px",
+              maxWidth: "860px", marginBottom: "40px",
+            }}>
+              "{brandStrategy.enemyStatement}"
+            </blockquote>
+            <div className="rg-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "16px" }}>
+              {brandStrategy.enemies.map((e, i) => (
+                <div key={e.label} className={`reveal reveal-d${i + 1}`} style={{
+                  background: "var(--brand-card)", borderRadius: "12px", padding: "28px",
+                  borderTop: `3px solid ${e.color}`,
+                  border: `1px solid ${e.color}18`,
+                  borderTopColor: e.color,
+                }}>
+                  <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "16px", letterSpacing: "2px", color: e.color, marginBottom: "8px" }}>{e.label}</div>
+                  <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "16px", color: "rgba(242,242,255,0.5)", lineHeight: 1.55 }}>{e.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Positioning */}
+          <div className="reveal" style={{
+            background: "linear-gradient(135deg, rgba(0,200,255,0.05) 0%, rgba(255,0,204,0.04) 100%)",
+            border: "1px solid rgba(255,255,255,0.07)", borderRadius: "16px",
+            padding: "44px", marginBottom: "24px",
+          }}>
+            <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "13px", letterSpacing: "5px", color: "rgba(242,242,255,0.3)", marginBottom: "16px" }}>POSITIONING STATEMENT</div>
+            <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "clamp(17px, 1.8vw, 22px)", lineHeight: 1.65, color: "rgba(242,242,255,0.85)", fontStyle: "italic" }}>
+              {brandStrategy.positioning}
+            </p>
+          </div>
+
+          {/* Essence + Promise */}
+          <div className="rg-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "24px" }}>
+            {[
+              { label: "Brand Essence", value: brandStrategy.essence, color: "#00C8FF", sub: "The north star. One sentence that rejects anything that doesn't make moments louder." },
+              { label: "Brand Promise", value: brandStrategy.promise, color: "#FF4D8A", sub: "What every touchpoint commits to. Implicit in the bottle, the colour, the copy." },
+            ].map((item, i) => (
+              <div key={item.label} className={`reveal reveal-d${i + 1}`} style={{
+                background: "var(--brand-card)", borderRadius: "14px", padding: "36px",
+                borderLeft: `3px solid ${item.color}`,
+                border: `1px solid ${item.color}18`,
+                borderLeftColor: item.color,
+              }}>
+                <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "13px", letterSpacing: "4px", color: item.color, marginBottom: "16px" }}>{item.label}</div>
+                <div style={{ fontFamily: "Anton, sans-serif", fontSize: "clamp(20px, 2vw, 30px)", lineHeight: 1.15, color: "#F2F2FF", marginBottom: "14px" }}>{item.value}</div>
+                <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "15px", color: "rgba(242,242,255,0.38)", lineHeight: 1.55 }}>{item.sub}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Origin */}
+          <div className="reveal" style={{
+            background: "rgba(255,255,255,0.015)", border: "1px solid rgba(255,255,255,0.06)",
+            borderRadius: "14px", padding: "36px",
+            display: "flex", gap: "24px", alignItems: "flex-start",
+          }}>
+            <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "11px", letterSpacing: "4px", color: "rgba(242,242,255,0.22)", paddingTop: "4px", flexShrink: 0, minWidth: "60px" }}>ORIGIN</div>
+            <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "18px", lineHeight: 1.7, color: "rgba(242,242,255,0.55)", fontStyle: "italic" }}>
+              "{brandStrategy.origin}"
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ── 01 BRAND IDENTITY ─────────────────────────────────── */}
       <section id="identity" style={{ padding: "120px 48px", maxWidth: "1200px", margin: "0 auto" }}>
         <div className="section-label reveal" style={{ marginBottom: "20px" }}>01 / Brand Identity</div>
         <div className="divider" style={{ marginBottom: "64px" }} />
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "start" }}>
+        <div className="rg-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "start" }}>
           <div className="reveal">
             <h2 style={{
               fontFamily: "Anton, sans-serif",
@@ -495,6 +656,57 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── PERSONALITY & ARCHETYPE ───────────────────────────── */}
+      <section className="s-alt" style={{ padding: "80px 48px", maxWidth: "1200px", margin: "0 auto" }}>
+        <div className="section-label reveal" style={{ marginBottom: "20px" }}>Brand Archetype & Personality</div>
+        <div className="divider" style={{ marginBottom: "64px" }} />
+
+        {/* Archetypes */}
+        <div className="rg-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginBottom: "48px" }}>
+          {[
+            { type: "Primary",   name: "The Jester",  color: "#FF4D8A", desc: "Playful, irreverent, life of the party. Gee Up finds humour in its own loudness — it doesn't take itself seriously, and that's the point.", traits: ["Playful","Irreverent","Fun","Disarming"] },
+            { type: "Secondary", name: "The Outlaw",  color: "#39FF14", desc: "Rebellious against the status quo. Gee Up exists because it refused to make another safe, beige, forgettable RTD.", traits: ["Rebellious","Bold","Unapologetic","Disruptive"] },
+          ].map((arch, i) => (
+            <div key={arch.name} className={`reveal reveal-d${i + 1}`} style={{
+              background: "var(--brand-card)", borderRadius: "14px", padding: "40px",
+              border: `1px solid ${arch.color}22`, borderTopWidth: "3px", borderTopColor: arch.color,
+            }}>
+              <div style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "11px", letterSpacing: "4px", color: arch.color, marginBottom: "12px", fontWeight: 600 }}>{arch.type} ARCHETYPE</div>
+              <div style={{ fontFamily: "Anton, sans-serif", fontSize: "clamp(32px, 3.5vw, 48px)", color: "#F2F2FF", lineHeight: 0.95, marginBottom: "20px" }}>{arch.name.toUpperCase()}</div>
+              <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "17px", color: "rgba(242,242,255,0.55)", lineHeight: 1.65, marginBottom: "24px" }}>{arch.desc}</p>
+              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+                {arch.traits.map(t => (
+                  <span key={t} style={{ fontFamily: "Bebas Neue, cursive", fontSize: "12px", letterSpacing: "2px", color: arch.color, border: `1px solid ${arch.color}40`, borderRadius: "4px", padding: "4px 12px" }}>{t}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Personality Dials */}
+        <div className="reveal" style={{
+          background: "var(--brand-card)", border: "1px solid var(--brand-border)",
+          borderRadius: "14px", padding: "44px",
+        }}>
+          <div className="section-label" style={{ marginBottom: "32px" }}>Personality Dials</div>
+          <div style={{ display: "flex", flexDirection: "column", gap: "22px" }}>
+            {personalityDials.map((dial, i) => {
+              const pct = (dial.value / 10) * 100;
+              return (
+                <div key={dial.label} style={{ display: "grid", gridTemplateColumns: "130px 1fr 130px", gap: "20px", alignItems: "center" }}>
+                  <div style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "13px", fontWeight: 600, letterSpacing: "1px", color: "rgba(242,242,255,0.35)", textAlign: "right", textTransform: "uppercase" }}>{dial.label}</div>
+                  <div style={{ height: "4px", borderRadius: "2px", background: "rgba(255,255,255,0.06)", position: "relative" }}>
+                    <div style={{ position: "absolute", left: 0, top: 0, height: "100%", width: `${pct}%`, background: `linear-gradient(90deg, ${dial.color}66, ${dial.color})`, borderRadius: "2px" }} />
+                    <div style={{ position: "absolute", top: "50%", left: `${pct}%`, transform: "translate(-50%, -50%)", width: "12px", height: "12px", borderRadius: "50%", background: dial.color, boxShadow: `0 0 8px ${dial.color}88` }} />
+                  </div>
+                  <div style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "13px", fontWeight: 600, letterSpacing: "1px", color: dial.color, textTransform: "uppercase" }}>{dial.opposite}</div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* ── 02 LOGO SYSTEM ────────────────────────────────────── */}
       <section style={{
         padding: "80px 48px",
@@ -506,7 +718,7 @@ export default function Home() {
           <div className="section-label reveal" style={{ marginBottom: "20px" }}>02 / Logo System</div>
           <div className="divider" style={{ marginBottom: "64px" }} />
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px", marginBottom: "48px" }}>
+          <div className="rg-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px", marginBottom: "48px" }}>
             {[
               { bg: "#070710", border: "rgba(255,255,255,0.1)", logoSrc: "/images/logo-white.svg", label: "On Black — Primary Use", textColor: "rgba(255,255,255,0.28)" },
               { bg: "#F2F2FF", border: "transparent",           logoSrc: "/images/logo-black.svg", label: "On White — Secondary Use", textColor: "rgba(10,10,20,0.38)" },
@@ -567,7 +779,7 @@ export default function Home() {
         <div className="divider" style={{ marginBottom: "64px" }} />
 
         <h3 style={{ fontFamily: "Bebas Neue, cursive", fontSize: "18px", letterSpacing: "5px", color: "rgba(242,242,255,0.35)", marginBottom: "20px" }}>PRIMARY PALETTE</h3>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "12px", marginBottom: "72px" }}>
+        <div className="rg-4" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "12px", marginBottom: "72px" }}>
           {[
             { name: "Brand Black",  hex: "#070710", swatch: "#070710",  border: "rgba(255,255,255,0.1)" },
             { name: "Deep Night",   hex: "#0C0C18", swatch: "#0C0C18",  border: "rgba(255,255,255,0.08)" },
@@ -585,7 +797,7 @@ export default function Home() {
         </div>
 
         <h3 style={{ fontFamily: "Bebas Neue, cursive", fontSize: "18px", letterSpacing: "5px", color: "rgba(242,242,255,0.35)", marginBottom: "20px" }}>FLAVOUR-CODED SKU PALETTE</h3>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "12px" }}>
+        <div className="rg-5" style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "12px" }}>
           {SKUs.map((sku, i) => (
             <div key={sku.id} className={`reveal reveal-d${Math.min(i + 1, 5)}`} style={{
               borderRadius: "12px", overflow: "hidden",
@@ -623,7 +835,7 @@ export default function Home() {
           <div className="section-label reveal" style={{ marginBottom: "20px" }}>Label Architecture</div>
           <div className="divider" style={{ marginBottom: "64px" }} />
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "start", marginBottom: "80px" }}>
+          <div className="rg-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "start", marginBottom: "80px" }}>
             <div className="reveal">
               <h2 style={{
                 fontFamily: "Anton, sans-serif",
@@ -673,7 +885,7 @@ export default function Home() {
           </div>
 
           {/* Zone legend */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "12px" }}>
+          <div className="rg-5" style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "12px" }}>
             {[
               { num: "01", name: "Top Band",     desc: "SKU colour. Instant flavour ID.", color: SKUs[0].primary },
               { num: "02", name: "Brand Zone",   desc: "GEE UP wordmark. White lockup.",  color: SKUs[1].primary },
@@ -701,7 +913,7 @@ export default function Home() {
         <div className="section-label reveal" style={{ marginBottom: "20px" }}>04 / Typography</div>
         <div className="divider" style={{ marginBottom: "64px" }} />
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "24px", marginBottom: "40px" }}>
+        <div className="rg-3" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "24px", marginBottom: "40px" }}>
           {[
             {
               role: "Display / Headers", font: "Anton, sans-serif",
@@ -780,7 +992,7 @@ export default function Home() {
           <div className="section-label reveal" style={{ marginBottom: "20px" }}>05 / Creative Headlines</div>
           <div className="divider" style={{ marginBottom: "64px" }} />
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "start", marginBottom: "80px" }}>
+          <div className="rg-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "start", marginBottom: "80px" }}>
             <div className="reveal">
               <h2 style={{ fontFamily: "Anton, sans-serif", fontSize: "clamp(44px, 4.5vw, 64px)", lineHeight: 0.95, marginBottom: "20px" }}>
                 <span className="text-chrome">THE HEADLINE</span><br />
@@ -810,7 +1022,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
+          <div className="headline-panels" style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
             {/* 1 — Stacked Impact */}
             <div className="reveal" style={{
               background: "var(--brand-card)", border: "1px solid rgba(255,255,255,0.07)",
@@ -908,6 +1120,94 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── MESSAGING HIERARCHY ───────────────────────────────── */}
+      <section id="messaging" className="s-alt" style={{
+        padding: "120px 48px",
+        background: "var(--brand-deep)",
+        borderTop: "1px solid var(--brand-border)",
+        borderBottom: "1px solid var(--brand-border)",
+      }}>
+        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+          <div className="section-label reveal" style={{ marginBottom: "20px" }}>Messaging Hierarchy</div>
+          <div className="divider" style={{ marginBottom: "64px" }} />
+
+          <h3 style={{ fontFamily: "Bebas Neue, cursive", fontSize: "18px", letterSpacing: "5px", color: "rgba(242,242,255,0.35)", marginBottom: "24px" }}>TAGLINE OPTIONS</h3>
+          <div className="rg-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "16px", marginBottom: "64px" }}>
+            {taglineOptions.map((t, i) => (
+              <div key={t.line} className={`reveal reveal-d${i + 1}`} style={{
+                background: "var(--brand-card)", borderRadius: "14px", padding: "36px",
+                border: `1px solid ${t.color}22`, borderTopWidth: "3px", borderTopColor: t.color,
+              }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
+                  <div style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "11px", letterSpacing: "4px", color: t.color, fontWeight: 600 }}>{t.status}</div>
+                  <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "11px", letterSpacing: "2px", color: "rgba(242,242,255,0.2)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "4px", padding: "3px 10px" }}>
+                    OPTION {["A","B","C"][i]}
+                  </div>
+                </div>
+                <div style={{ fontFamily: "Anton, sans-serif", fontSize: "clamp(26px, 2.8vw, 38px)", color: "#F2F2FF", lineHeight: 0.95, marginBottom: "28px" }}>{t.line}</div>
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                  {[
+                    { label: "Trigger",  value: t.trigger },
+                    { label: "Tone",     value: t.tone    },
+                    { label: "Customer", value: `"${t.customer}"` },
+                    { label: "Brand",    value: t.brand   },
+                  ].map(row => (
+                    <div key={row.label}>
+                      <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "11px", letterSpacing: "3px", color: t.color, marginBottom: "3px" }}>{row.label}</div>
+                      <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "14px", color: "rgba(242,242,255,0.5)", lineHeight: 1.5 }}>{row.value}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="rg-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginBottom: "64px" }}>
+            <div className="reveal" style={{ background: "var(--brand-card)", border: "1px solid var(--brand-border)", borderRadius: "14px", padding: "36px" }}>
+              <div className="section-label" style={{ marginBottom: "16px" }}>One-liner</div>
+              <div style={{ fontFamily: "Anton, sans-serif", fontSize: "clamp(18px, 1.8vw, 26px)", lineHeight: 1.2, color: "#F2F2FF", marginBottom: "16px" }}>
+                Flavour-coded vodka premixes designed for the feed, the fridge, and the festival.
+              </div>
+              <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "15px", color: "rgba(242,242,255,0.4)", lineHeight: 1.55 }}>Homepage H1, social bios, elevator pitch. Covers who, what, and where without overexplaining.</p>
+            </div>
+            <div className="reveal reveal-d1" style={{ background: "var(--brand-card)", border: "1px solid var(--brand-border)", borderRadius: "14px", padding: "36px" }}>
+              <div className="section-label" style={{ marginBottom: "16px" }}>Messaging Levels</div>
+              {[
+                { level: "Tagline",  example: "Hits the Spot.",                                                              where: "Logo lockups, bios" },
+                { level: "One-liner",example: "Flavour-coded vodka premixes for the feed, fridge and festival.",              where: "Homepage, pitch" },
+                { level: "Campaign", example: "Get Loud. Get Going.",                                                        where: "Ad creative, launch" },
+                { level: "Headline", example: "Five flavours. Zero compromise.",                                             where: "Ads, POS, OOH" },
+              ].map((row, i, arr) => (
+                <div key={row.level} style={{ display: "grid", gridTemplateColumns: "80px 1fr", gap: "16px", padding: "12px 0", borderBottom: i < arr.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none" }}>
+                  <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "12px", letterSpacing: "2px", color: "rgba(242,242,255,0.25)", paddingTop: "2px" }}>{row.level}</div>
+                  <div>
+                    <div style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "14px", fontWeight: 600, color: "#F2F2FF", marginBottom: "2px" }}>{row.example}</div>
+                    <div style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "12px", color: "rgba(242,242,255,0.3)", letterSpacing: "1px" }}>{row.where}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <h3 style={{ fontFamily: "Bebas Neue, cursive", fontSize: "18px", letterSpacing: "5px", color: "rgba(242,242,255,0.35)", marginBottom: "24px" }}>JOBS TO BE DONE</h3>
+          <div className="rg-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "16px" }}>
+            {jtbd.map((j, i) => (
+              <div key={j.type} className={`reveal reveal-d${i + 1}`} style={{
+                background: "rgba(255,255,255,0.02)", border: `1px solid ${j.color}22`,
+                borderRadius: "14px", padding: "36px",
+              }}>
+                <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "14px", letterSpacing: "3px", color: j.color, marginBottom: "14px" }}>{j.type} Job</div>
+                <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "18px", fontWeight: 500, color: "#F2F2FF", lineHeight: 1.5, marginBottom: "16px" }}>{j.job}</p>
+                <div style={{ height: "1px", background: `${j.color}22`, marginBottom: "16px" }} />
+                <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "14px", color: "rgba(242,242,255,0.42)", lineHeight: 1.55 }}>
+                  <span style={{ color: j.color }}>Insight: </span>{j.insight}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── FLAVOUR WORLDS ────────────────────────────────────── */}
       <section id="skus" style={{ padding: "120px 0", overflow: "hidden" }}>
         <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 48px", marginBottom: "64px" }}>
@@ -925,14 +1225,14 @@ export default function Home() {
             {/* Top colour accent stripe */}
             <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: sku.primary }} />
 
-            <div style={{
+            <div className="flavour-grid" style={{
               maxWidth: "1400px", margin: "0 auto", padding: "80px 48px",
               display: "grid",
               gridTemplateColumns: i % 2 === 0 ? "1fr 1.4fr" : "1.4fr 1fr",
               gap: "64px", alignItems: "center", minHeight: "400px",
             }}>
               {/* Bottle */}
-              <div style={{
+              <div className="flavour-bottle" style={{
                 order: i % 2 === 0 ? 1 : 2,
                 display: "flex", justifyContent: "center", position: "relative",
               }}>
@@ -948,7 +1248,7 @@ export default function Home() {
               </div>
 
               {/* Text */}
-              <div style={{ order: i % 2 === 0 ? 2 : 1 }}>
+              <div className="flavour-text" style={{ order: i % 2 === 0 ? 2 : 1 }}>
                 <div style={{
                   fontFamily: "Barlow Condensed, sans-serif", fontSize: "11px",
                   letterSpacing: "4px", color: sku.primary, marginBottom: "16px",
@@ -1008,7 +1308,7 @@ export default function Home() {
 
         <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
           {SKUs.map((sku, i) => (
-            <div key={sku.id} className="reveal" style={{
+            <div key={sku.id} className="reveal sku-row" style={{
               background: "var(--brand-card)", border: `1px solid ${sku.primary}20`,
               borderRadius: i === 0 ? "14px 14px 3px 3px" : i === SKUs.length - 1 ? "3px 3px 14px 14px" : "3px",
               padding: "36px 48px",
@@ -1028,7 +1328,7 @@ export default function Home() {
                 </div>
               </div>
               <div>
-                <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "12px", letterSpacing: "3px", color: "rgba(242,242,255,0.28)", marginBottom: "8px" }}>PRIMARY HEX</div>
+                <div className="sku-row-extra" style={{ fontFamily: "Bebas Neue, cursive", fontSize: "12px", letterSpacing: "3px", color: "rgba(242,242,255,0.28)", marginBottom: "8px" }}>PRIMARY HEX</div>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                   <div style={{ width: "28px", height: "28px", borderRadius: "6px", background: sku.primary, flexShrink: 0 }} />
                   <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "22px", color: sku.primary, letterSpacing: "2px" }}>#{sku.hex}</div>
@@ -1059,7 +1359,7 @@ export default function Home() {
           <div className="section-label reveal" style={{ marginBottom: "20px" }}>Closure System</div>
           <div className="divider" style={{ marginBottom: "64px" }} />
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "start", marginBottom: "88px" }}>
+          <div className="rg-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "start", marginBottom: "88px" }}>
             <div className="reveal">
               <h2 style={{
                 fontFamily: "Anton, sans-serif",
@@ -1081,7 +1381,7 @@ export default function Home() {
 
             {/* Cap anatomy */}
             <div className="reveal reveal-d2">
-              <div style={{
+              <div className="cap-anatomy" style={{
                 background: "var(--brand-card)", border: "1px solid var(--brand-border)",
                 borderRadius: "14px", padding: "36px",
                 display: "grid", gridTemplateColumns: "148px 1fr", gap: "36px", alignItems: "center",
@@ -1113,7 +1413,7 @@ export default function Home() {
           </div>
 
           {/* Five caps */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "16px" }}>
+          <div className="rg-5" style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "16px" }}>
             {SKUs.map((sku, i) => (
               <div key={sku.id} className={`reveal reveal-d${Math.min(i + 1, 5)}`} style={{
                 background: `linear-gradient(160deg, ${sku.dark} 0%, ${sku.mid}55 100%)`,
@@ -1174,7 +1474,50 @@ export default function Home() {
           ))}
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginBottom: "56px" }}>
+        {/* We Are X Not Y */}
+        <div style={{ marginBottom: "56px" }}>
+          <h3 style={{ fontFamily: "Bebas Neue, cursive", fontSize: "18px", letterSpacing: "5px", color: "rgba(242,242,255,0.35)", marginBottom: "20px" }}>WE ARE X, NOT Y</h3>
+          <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+            {weAreXNotY.map((pair, i) => (
+              <div key={pair.x} className={`reveal xnoty-row`} style={{
+                background: "var(--brand-card)", border: "1px solid var(--brand-border)",
+                borderRadius: i === 0 ? "12px 12px 3px 3px" : i === weAreXNotY.length - 1 ? "3px 3px 12px 12px" : "3px",
+                padding: "18px 32px",
+                display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center", gap: "24px",
+              }}>
+                <div style={{ fontFamily: "Anton, sans-serif", fontSize: "clamp(22px, 2.5vw, 34px)", color: pair.color }}>{pair.x.toUpperCase()}</div>
+                <div style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "13px", letterSpacing: "4px", color: "rgba(242,242,255,0.2)", textTransform: "uppercase" }}>not</div>
+                <div style={{ fontFamily: "Anton, sans-serif", fontSize: "clamp(22px, 2.5vw, 34px)", color: "rgba(242,242,255,0.18)", textDecoration: "line-through" }}>{pair.notY.toUpperCase()}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Banned Words */}
+        <div className="reveal" style={{
+          background: "rgba(255,77,138,0.04)", border: "1px solid rgba(255,77,138,0.14)",
+          borderRadius: "14px", padding: "36px", marginBottom: "56px",
+        }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+            <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#FF4D8A", flexShrink: 0 }} />
+            <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "18px", letterSpacing: "4px", color: "#FF4D8A" }}>BANNED WORDS</div>
+          </div>
+          <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "15px", color: "rgba(242,242,255,0.4)", marginBottom: "20px", lineHeight: 1.55 }}>
+            These words are generic and invisible. None of them describe Gee Up. If you feel tempted — delete it, then ask why the copy isn't strong enough without it.
+          </p>
+          <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+            {bannedWords.map(w => (
+              <span key={w} style={{
+                fontFamily: "Barlow Condensed, sans-serif", fontSize: "14px", fontWeight: 600, letterSpacing: "1px",
+                background: "rgba(255,77,138,0.08)", border: "1px solid rgba(255,77,138,0.2)",
+                borderRadius: "6px", padding: "6px 14px", color: "rgba(255,77,138,0.55)",
+                textDecoration: "line-through",
+              }}>{w}</span>
+            ))}
+          </div>
+        </div>
+
+        <div className="rg-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginBottom: "56px" }}>
           <div className="reveal" style={{
             background: "rgba(57,255,20,0.05)", border: "1px solid rgba(57,255,20,0.18)",
             borderRadius: "14px", padding: "36px",
@@ -1224,7 +1567,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
+        <div className="rg-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
           {[
             { title: "DO'S",   color: "#39FF14", items: dosDonts.dos },
             { title: "DON'TS", color: "#FF4D8A", items: dosDonts.donts },
@@ -1258,7 +1601,7 @@ export default function Home() {
           <div className="section-label reveal" style={{ marginBottom: "20px" }}>08 / Photography & Imagery</div>
           <div className="divider" style={{ marginBottom: "64px" }} />
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "start" }}>
+          <div className="rg-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "start" }}>
             <div className="reveal">
               <h2 style={{ fontFamily: "Anton, sans-serif", fontSize: "clamp(48px, 4.5vw, 68px)", lineHeight: 0.95, marginBottom: "24px" }}>
                 <span className="text-chrome">PRODUCT IS</span>
@@ -1308,7 +1651,7 @@ export default function Home() {
         <div className="section-label reveal" style={{ marginBottom: "20px" }}>09 / Brand Applications</div>
         <div className="divider" style={{ marginBottom: "64px" }} />
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px", marginBottom: "40px" }}>
+        <div className="rg-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px", marginBottom: "40px" }}>
           {[
             { sku: SKUs[0], label: "INSTAGRAM / SOCIAL POST",  note: "1080×1080px. Product-centred. SKU background. Bold name lockup. No lifestyle clutter." },
             { sku: SKUs[4], label: "TIKTOK / REELS THUMBNAIL", note: "9:16 ratio. Bold hook text. Bottle in first frame. Flavour colour dominant." },
@@ -1335,7 +1678,7 @@ export default function Home() {
           ))}
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "12px" }}>
+        <div className="rg-4" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "12px" }}>
           {[
             { abbr: "FV", color: "#00C8FF", name: "Festival Activation",  desc: "Experiential, high-energy. All 5 SKUs on display. Full colour immersion." },
             { abbr: "RT", color: "#FF4D8A", name: "Convenience Retail",   desc: "Cold fridge placement. Colour block merchandising. Bold shelf talkers." },
@@ -1403,14 +1746,14 @@ export default function Home() {
       {/* ── FOOTER ────────────────────────────────────────────── */}
       <footer style={{ background: "#050508", borderTop: "1px solid rgba(255,255,255,0.05)", padding: "56px 48px" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "36px" }}>
+          <div className="footer-bar" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "36px" }}>
             <img src="/images/logo-white.svg" alt="Gee Up Vodka" style={{ height: "36px", width: "auto" }} />
             <div style={{ fontFamily: "Anton, sans-serif", fontSize: "28px", color: "#F2F2FF", letterSpacing: "0.5px" }}>
               GET LOUD. GET GOING.
             </div>
           </div>
           <div className="divider" style={{ marginBottom: "28px" }} />
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div className="footer-bottom" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "12px", color: "rgba(242,242,255,0.2)", letterSpacing: "2px" }}>
               © 2026 GEE UP VODKA · BRAND GUIDELINES · STRICTLY CONFIDENTIAL
             </p>
