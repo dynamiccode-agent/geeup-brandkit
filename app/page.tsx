@@ -174,13 +174,26 @@ export default function Home() {
             <span className="text-sku-gradient">GET GOING.</span>
           </div>
 
+          <div className="anim-slide-up" style={{
+            marginBottom: "32px",
+            animationDelay: "240ms",
+          }}>
+            <span style={{
+              fontFamily: "Permanent Marker, cursive",
+              fontSize: "clamp(28px, 4vw, 52px)",
+              color: "#F2F2FF",
+              letterSpacing: "1px",
+              opacity: 0.92,
+            }}>Hits the Spot</span>
+          </div>
+
           <p className="anim-slide-up" style={{
             fontFamily: "Barlow Condensed, sans-serif",
             fontSize: "16px", fontWeight: 500,
             letterSpacing: "5px", textTransform: "uppercase",
             color: "rgba(242,242,255,0.4)",
             marginBottom: "72px",
-            animationDelay: "240ms",
+            animationDelay: "320ms",
           }}>
             Vodka · Premix · Electrolytes · 4.8% ABV · 275mL
           </p>
