@@ -53,6 +53,40 @@ body {
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
 }
 
+/* ── gradient title text ── */
+@keyframes shimmer {
+  0%   { background-position: 0%   center; }
+  100% { background-position: 200% center; }
+}
+
+/* Animated multi-SKU rainbow — used on hero "GET GOING." and "LINEUP." */
+.text-sku-gradient {
+  background: linear-gradient(
+    135deg,
+    #00C8FF, #FF4D8A, #A020F0, #39FF14, #FF00CC, #00C8FF
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Static chrome/silver — used on solid white headline words */
+.text-chrome {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #e4e4e4 30%,
+    #ffffff 55%,
+    #b8b8b8 80%,
+    #f0f0f0 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* ── animations ── */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }

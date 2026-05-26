@@ -169,9 +169,9 @@ export default function Home() {
             marginBottom: "40px",
             animationDelay: "160ms",
           }}>
-            <span style={{ color: "#F2F2FF" }}>GET LOUD.</span>
+            <span className="text-chrome">GET LOUD.</span>
             <br />
-            <span style={{ color: "#FF4D8A" }}>GET GOING.</span>
+            <span className="text-sku-gradient">GET GOING.</span>
           </div>
 
           <p className="anim-slide-up" style={{
@@ -235,7 +235,7 @@ export default function Home() {
               lineHeight: 0.95, letterSpacing: "-1px",
               marginBottom: "40px",
             }}>
-              <span style={{ color: "#F2F2FF" }}>THE BRAND</span>
+              <span className="text-chrome">THE BRAND</span>
               <br />
               <span style={{ color: "#39FF14" }}>IN THREE</span>
               <br />
@@ -571,7 +571,7 @@ export default function Home() {
           fontSize: "clamp(48px, 5vw, 72px)",
           lineHeight: 0.95, marginBottom: "56px",
         }}>
-          <span style={{ color: "#F2F2FF" }}>FIVE FLAVOURS.</span>
+          <span className="text-chrome">FIVE FLAVOURS.</span>
           <br />
           <span style={{ color: "#FF4D8A" }}>FIVE WORLDS.</span>
         </h2>
@@ -784,7 +784,7 @@ export default function Home() {
               fontSize: "clamp(48px, 4.5vw, 68px)",
               lineHeight: 0.95, marginBottom: "24px",
             }}>
-              <span style={{ color: "#F2F2FF" }}>PRODUCT IS</span>
+              <span className="text-chrome">PRODUCT IS</span>
               <br />
               <span style={{ color: "#FF00CC" }}>THE HERO.</span>
             </h2>
@@ -921,9 +921,9 @@ export default function Home() {
           lineHeight: 0.9, letterSpacing: "-2px",
           marginBottom: "88px",
         }}>
-          <span style={{ color: "#F2F2FF" }}>THE FULL</span>
+          <span className="text-chrome">THE FULL</span>
           <br />
-          <span style={{ color: "#00C8FF" }}>LINEUP.</span>
+          <span className="text-sku-gradient">LINEUP.</span>
         </h2>
 
         <div style={{
