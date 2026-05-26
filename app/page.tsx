@@ -574,9 +574,156 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 05 SKU LINEUP ───────────────────────────────────── */}
+      {/* ── 05 CREATIVE HEADLINES ───────────────────────────── */}
+      <section style={{ padding: "120px 48px", maxWidth: "1400px", margin: "0 auto" }}>
+        <div className="section-label" style={{ marginBottom: "20px" }}>05 / Creative Headlines</div>
+        <div className="divider" style={{ marginBottom: "64px" }} />
+
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "start", marginBottom: "80px" }}>
+          <div>
+            <h2 style={{ fontFamily: "Anton, sans-serif", fontSize: "clamp(44px, 4.5vw, 64px)", lineHeight: 0.95, marginBottom: "20px" }}>
+              <span className="text-chrome">THE HEADLINE</span><br />
+              <span style={{ color: "#FF4D8A" }}>IS THE</span><br />
+              <span className="text-chrome">DESIGN.</span>
+            </h2>
+            <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "19px", color: "rgba(242,242,255,0.55)", lineHeight: 1.65, maxWidth: "480px" }}>
+              A bold, vertically stacked subtitle system inspired by street posters, fashion editorials, nightclub flyers, and urban billboard typography. An aggressive condensed treatment used as a supporting graphic device to create energy, attitude, and instant visual hierarchy.
+            </p>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+            {[
+              { label: "Ultra-condensed sans serif",     color: "#00C8FF" },
+              { label: "Oversized uppercase lettering",  color: "#FF4D8A" },
+              { label: "Stacked word breaks",            color: "#39FF14" },
+              { label: "Strong vertical rhythm",         color: "#A020F0" },
+              { label: "Editorial / fashion poster influence", color: "#FF00CC" },
+              { label: "Urban nightlife aesthetic",      color: "#00C8FF" },
+              { label: "High readability at distance",   color: "#FF4D8A" },
+              { label: "Distressed texture overlays",    color: "#39FF14" },
+            ].map((c) => (
+              <div key={c.label} style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+                <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: c.color, flexShrink: 0 }} />
+                <span style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "17px", color: "rgba(242,242,255,0.6)", letterSpacing: "0.5px" }}>{c.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Five headline style specimens */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
+
+          {/* 1. Stacked Impact Headline */}
+          <div style={{
+            background: "var(--brand-card)", border: "1px solid rgba(255,255,255,0.07)",
+            borderRadius: "14px 14px 3px 3px", padding: "48px",
+            display: "grid", gridTemplateColumns: "1fr 340px", gap: "48px", alignItems: "center",
+          }}>
+            <div>
+              <div style={{ fontFamily: "Anton, sans-serif", fontSize: "clamp(56px, 7vw, 100px)", lineHeight: 0.88, letterSpacing: "-1px" }}>
+                <div className="text-chrome">LOUD.</div>
+                <div className="text-chrome">COLD.</div>
+                <div style={{ color: "#00C8FF" }}>NOW.</div>
+              </div>
+            </div>
+            <div>
+              <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "13px", letterSpacing: "4px", color: "#00C8FF", marginBottom: "10px" }}>STACKED IMPACT HEADLINE</div>
+              <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "16px", color: "rgba(242,242,255,0.5)", lineHeight: 1.6 }}>
+                Single words broken per line. Maximum vertical rhythm. Each word lands as its own moment. Dominant hierarchy — nothing competes.
+              </p>
+            </div>
+          </div>
+
+          {/* 2. Editorial Street-Style */}
+          <div style={{
+            background: "#0C0C18", border: "1px solid rgba(255,77,138,0.15)",
+            borderRadius: "3px", padding: "48px",
+            display: "grid", gridTemplateColumns: "1fr 340px", gap: "48px", alignItems: "center",
+          }}>
+            <div>
+              <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "clamp(14px, 1.8vw, 22px)", letterSpacing: "8px", color: "rgba(242,242,255,0.35)", marginBottom: "4px" }}>VODKA PREMIX</div>
+              <div style={{ fontFamily: "Anton, sans-serif", fontSize: "clamp(52px, 6.5vw, 92px)", lineHeight: 0.9, color: "#F2F2FF", letterSpacing: "-1px" }}>HITS THE</div>
+              <div style={{ fontFamily: "Anton, sans-serif", fontSize: "clamp(52px, 6.5vw, 92px)", lineHeight: 0.9, color: "#FF4D8A", letterSpacing: "-1px" }}>SPOT.</div>
+              <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "clamp(12px, 1.5vw, 18px)", letterSpacing: "6px", color: "rgba(242,242,255,0.3)", marginTop: "8px" }}>4.8% ABV · 275ML · AUSTRALIA</div>
+            </div>
+            <div>
+              <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "13px", letterSpacing: "4px", color: "#FF4D8A", marginBottom: "10px" }}>EDITORIAL STREET-STYLE</div>
+              <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "16px", color: "rgba(242,242,255,0.5)", lineHeight: 1.6 }}>
+                Small label type above and below a large impact statement. Borrowed from fashion editorial and luxury streetwear. Creates a poster-within-a-poster effect.
+              </p>
+            </div>
+          </div>
+
+          {/* 3. Urban Poster Typography */}
+          <div style={{
+            background: "var(--brand-card)", border: "1px solid rgba(57,255,20,0.12)",
+            borderRadius: "3px", padding: "48px",
+            display: "grid", gridTemplateColumns: "1fr 340px", gap: "48px", alignItems: "center",
+          }}>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "clamp(40px, 5vw, 72px)", letterSpacing: "12px", color: "rgba(242,242,255,0.18)", lineHeight: 1 }}>TONIGHT</div>
+              <div style={{ fontFamily: "Anton, sans-serif", fontSize: "clamp(60px, 8vw, 110px)", lineHeight: 0.85, letterSpacing: "-2px", marginLeft: "4px" }}>
+                <span style={{ color: "#39FF14" }}>GET</span><span className="text-chrome"> UP.</span>
+              </div>
+              <div style={{ fontFamily: "Anton, sans-serif", fontSize: "clamp(60px, 8vw, 110px)", lineHeight: 0.85, letterSpacing: "-2px", marginLeft: "48px" }}>
+                <span className="text-sku-gradient">GEE UP.</span>
+              </div>
+            </div>
+            <div>
+              <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "13px", letterSpacing: "4px", color: "#39FF14", marginBottom: "10px" }}>URBAN POSTER TYPOGRAPHY</div>
+              <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "16px", color: "rgba(242,242,255,0.5)", lineHeight: 1.6 }}>
+                Offset indentation creates diagonal energy. Ghost text at low opacity sets depth. Inspired by nightclub flyers, concert posters, and rave culture visual language.
+              </p>
+            </div>
+          </div>
+
+          {/* 4. Bold Compressed Display */}
+          <div style={{
+            background: "#0C0C18", border: "1px solid rgba(160,32,240,0.15)",
+            borderRadius: "3px", padding: "48px",
+            display: "grid", gridTemplateColumns: "1fr 340px", gap: "48px", alignItems: "center",
+          }}>
+            <div>
+              <div style={{ fontFamily: "Bebas Neue, cursive", letterSpacing: "2px", lineHeight: 0.92 }}>
+                <div style={{ fontSize: "clamp(32px, 4vw, 56px)", color: "#A020F0" }}>FIVE FLAVOURS.</div>
+                <div style={{ fontSize: "clamp(56px, 7.5vw, 108px)", color: "#F2F2FF" }}>ZERO</div>
+                <div style={{ fontSize: "clamp(56px, 7.5vw, 108px)", color: "#F2F2FF" }}>COMPROMISE.</div>
+              </div>
+            </div>
+            <div>
+              <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "13px", letterSpacing: "4px", color: "#A020F0", marginBottom: "10px" }}>BOLD COMPRESSED DISPLAY</div>
+              <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "16px", color: "rgba(242,242,255,0.5)", lineHeight: 1.6 }}>
+                Bebas Neue at full width compression. Mixed scale contrast — one line anchors, the next explodes. Used for campaign headlines, OOH, and digital banners at scale.
+              </p>
+            </div>
+          </div>
+
+          {/* 5. High-Contrast Subtitle System */}
+          <div style={{
+            background: "var(--brand-card)", border: "1px solid rgba(255,0,204,0.12)",
+            borderRadius: "3px 3px 14px 14px", padding: "48px",
+            display: "grid", gridTemplateColumns: "1fr 340px", gap: "48px", alignItems: "center",
+          }}>
+            <div>
+              <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "clamp(13px, 1.6vw, 20px)", letterSpacing: "6px", color: "#FF00CC", marginBottom: "6px" }}>PRE-DRINKS SORTED.</div>
+              <div style={{ fontFamily: "Anton, sans-serif", fontSize: "clamp(52px, 6.5vw, 90px)", lineHeight: 0.88, color: "#F2F2FF", letterSpacing: "-1px", marginBottom: "8px" }}>
+                YOUR NIGHT<br />STARTS HERE.
+              </div>
+              <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "clamp(13px, 1.6vw, 20px)", letterSpacing: "6px", color: "rgba(242,242,255,0.3)" }}>GEE UP VODKA · LETSGEEUP.COM.AU</div>
+            </div>
+            <div>
+              <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "13px", letterSpacing: "4px", color: "#FF00CC", marginBottom: "10px" }}>HIGH-CONTRAST SUBTITLE SYSTEM</div>
+              <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "16px", color: "rgba(242,242,255,0.5)", lineHeight: 1.6 }}>
+                Small Bebas Neue label sandwiches a large Anton statement. Creates a three-tier hierarchy: intro label, hero statement, closing brand mark. Scales from social to billboard.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── 06 SKU LINEUP ───────────────────────────────────── */}
       <section id="skus" style={{ padding: "120px 48px", maxWidth: "1400px", margin: "0 auto" }}>
-        <div className="section-label" style={{ marginBottom: "20px" }}>05 / SKU Lineup</div>
+        <div className="section-label" style={{ marginBottom: "20px" }}>06 / SKU Lineup</div>
         <div className="divider" style={{ marginBottom: "64px" }} />
 
         <h2 style={{
@@ -661,7 +808,7 @@ export default function Home() {
         borderBottom: "1px solid var(--brand-border)",
       }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div className="section-label" style={{ marginBottom: "20px" }}>06 / Brand Voice & Personality</div>
+          <div className="section-label" style={{ marginBottom: "20px" }}>07 / Brand Voice & Personality</div>
           <div className="divider" style={{ marginBottom: "72px" }} />
 
           {/* Personality — staggered word wall, not card grid */}
@@ -787,7 +934,7 @@ export default function Home() {
 
       {/* ── 07 PHOTOGRAPHY ──────────────────────────────────── */}
       <section style={{ padding: "120px 48px", maxWidth: "1200px", margin: "0 auto" }}>
-        <div className="section-label" style={{ marginBottom: "20px" }}>07 / Photography & Imagery</div>
+        <div className="section-label" style={{ marginBottom: "20px" }}>08 / Photography & Imagery</div>
         <div className="divider" style={{ marginBottom: "64px" }} />
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "start" }}>
@@ -861,7 +1008,7 @@ export default function Home() {
         borderBottom: "1px solid var(--brand-border)",
       }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div className="section-label" style={{ marginBottom: "20px" }}>08 / Brand Applications</div>
+          <div className="section-label" style={{ marginBottom: "20px" }}>09 / Brand Applications</div>
           <div className="divider" style={{ marginBottom: "64px" }} />
 
           {/* Application mockup cards */}
