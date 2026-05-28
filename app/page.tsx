@@ -205,6 +205,7 @@ function useScrollReveal() {
 /* ─── CAP RENDER ──────────────────────────────────────────────── */
 const capGlbMap: Record<string, string> = {
   blue:    "/models/cotton-candy-crush-cap.glb",
+  pink:    "/models/green-apple-cap.glb",
   purple:  "/models/grape-cap.glb",
   green:   "/models/green-apple-cap.glb",
   magenta: "/models/bubble-gum-burst-cap.glb",
