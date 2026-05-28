@@ -203,7 +203,39 @@ function useScrollReveal() {
 }
 
 /* ─── CAP RENDER ──────────────────────────────────────────────── */
+const capGlbMap: Record<string, string> = {
+  blue:    "/models/cotton-candy-crush-cap.glb",
+  purple:  "/models/grape-cap.glb",
+  green:   "/models/green-apple-cap.glb",
+  magenta: "/models/bubble-gum-burst-cap.glb",
+};
+
 function CapRender({ sku, size = "lg" }: { sku: SKU; size?: "sm" | "md" | "lg" | "xl" }) {
+  const dims = {
+    sm: { w: 56,  h: 56  },
+    md: { w: 84,  h: 84  },
+    lg: { w: 110, h: 110 },
+    xl: { w: 148, h: 148 },
+  }[size];
+
+  const glb = capGlbMap[sku.id];
+
+  if (glb) {
+    return (
+      <model-viewer
+        src={glb}
+        auto-rotate=""
+        rotation-per-second="20deg"
+        camera-orbit="0deg 62deg auto"
+        shadow-intensity="0"
+        environment-image="neutral"
+        loading="eager"
+        style={{ width: `${dims.w}px`, height: `${dims.h}px`, background: "transparent" }}
+      />
+    );
+  }
+
+  /* CSS fallback for SKUs without a GLB (Sour Watermelon) */
   const cfg = {
     sm: { w: 50,  eh: 10, bh: 28, fs: 5  },
     md: { w: 72,  eh: 14, bh: 38, fs: 6  },
@@ -213,7 +245,6 @@ function CapRender({ sku, size = "lg" }: { sku: SKU; size?: "sm" | "md" | "lg" |
 
   return (
     <div style={{ position: "relative", width: cfg.w, height: cfg.eh + cfg.bh + 14, display: "inline-block" }}>
-      {/* Top ellipse — cap face */}
       <div style={{
         position: "absolute", top: 0, left: 0,
         width: cfg.w, height: cfg.eh * 2,
@@ -232,44 +263,31 @@ function CapRender({ sku, size = "lg" }: { sku: SKU; size?: "sm" | "md" | "lg" |
           }}>GEE UP</span>
         )}
       </div>
-
-      {/* Cylindrical body */}
       <div style={{
         position: "absolute", top: cfg.eh, left: 0,
         width: cfg.w, height: cfg.bh, zIndex: 2,
         borderRadius: `0 0 ${cfg.w * 0.04}px ${cfg.w * 0.04}px`,
         overflow: "hidden",
       }}>
-        {/* Colour + cylindrical curvature */}
         <div style={{
           position: "absolute", inset: 0,
-          background: `linear-gradient(90deg,
-            ${sku.dark} 0%, ${sku.mid} 12%,
-            ${sku.primary} 36%, ${sku.light} 50%,
-            ${sku.primary} 64%, ${sku.mid} 88%, ${sku.dark} 100%)`,
+          background: `linear-gradient(90deg, ${sku.dark} 0%, ${sku.mid} 12%, ${sku.primary} 36%, ${sku.light} 50%, ${sku.primary} 64%, ${sku.mid} 88%, ${sku.dark} 100%)`,
         }} />
-        {/* Knurling lines */}
         <div style={{
           position: "absolute", inset: 0,
-          background: `repeating-linear-gradient(0deg,
-            transparent 0px, transparent 2.5px,
-            rgba(0,0,0,0.055) 2.5px, rgba(0,0,0,0.055) 3.5px)`,
+          background: `repeating-linear-gradient(0deg, transparent 0px, transparent 2.5px, rgba(0,0,0,0.055) 2.5px, rgba(0,0,0,0.055) 3.5px)`,
         }} />
-        {/* Top rim highlight */}
         <div style={{
           position: "absolute", top: 0, left: "8%", right: "8%",
           height: "2px",
           background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent)",
         }} />
-        {/* Centre sheen */}
         <div style={{
           position: "absolute", top: 0, bottom: 0,
           left: "30%", width: "20%",
           background: "linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.09) 50%, rgba(255,255,255,0.04) 100%)",
         }} />
       </div>
-
-      {/* Bottom rim */}
       <div style={{
         position: "absolute", top: cfg.eh + cfg.bh - 2,
         left: "50%", transform: "translateX(-50%)",
@@ -278,8 +296,6 @@ function CapRender({ sku, size = "lg" }: { sku: SKU; size?: "sm" | "md" | "lg" |
         background: `radial-gradient(ellipse at 50% 30%, ${sku.dark}EE 0%, ${sku.dark}77 60%, transparent 100%)`,
         zIndex: 1,
       }} />
-
-      {/* Drop shadow */}
       <div style={{
         position: "absolute", bottom: -1,
         left: "50%", transform: "translateX(-50%)",

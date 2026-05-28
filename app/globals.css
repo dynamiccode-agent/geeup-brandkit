@@ -186,3 +186,9 @@ body {
   .s-alt  { padding: 48px 20px !important; }
   .s-inner { padding-left: 20px !important; padding-right: 20px !important; }
 }
+
+model-viewer {
+  --progress-bar-color: transparent;
+  --progress-mask: transparent;
+  background: transparent;
+}
