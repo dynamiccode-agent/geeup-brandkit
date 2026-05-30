@@ -111,13 +111,13 @@ const marqueeItems = [
 
 /* ─── STRATEGY DATA ───────────────────────────────────────────── */
 const brandStrategy = {
-  enemyStatement: "For too long, the RTD shelf looked the same. Safe flavours. Beige packaging. Corporate marketing written by committee for nobody. Every brand played it quiet, played it for everyone — which meant it stood out to no one.",
+  enemyStatement: "The RTD shelf is full of drinks that apologise for existing. Safe names. Beige tins. Marketing written by committee for nobody. Every brand playing it quiet, playing it for everyone — which means standing out to no one. We built the opposite on purpose.",
   enemies: [
-    { label: "Safe Flavours",  desc: "Chosen to offend nobody. Remembered by nobody.", color: "#00C8FF" },
-    { label: "Beige Packaging",desc: "Designed to fit in. Invisible from three metres.", color: "#FF4D8A" },
-    { label: "Corporate Tone", desc: "Speaks in press releases. Zero personality.",    color: "#39FF14" },
+    { label: "Safe Flavours",  desc: "Chosen to offend nobody. Tasted by nobody twice.", color: "#00C8FF" },
+    { label: "Beige Packaging",desc: "Engineered to disappear. Invisible from one metre away.", color: "#FF4D8A" },
+    { label: "Corporate Tone", desc: "Sounds like a LinkedIn post. Dies in the scroll.", color: "#39FF14" },
   ],
-  positioning: "For 18–28 year old social drinkers who want their drinks as loud as their night, Gee Up Vodka is the flavour-coded vodka premix that makes the can itself the vibe — because every SKU is a fully designed colour world, not just a drink in a can.",
+  positioning: "Every drink on the shelf apologises for existing. Gee Up doesn't. Five flavour-coded vodka premixes built to be seen first, chosen fast, and remembered the next day.",
   essence: "Make every moment louder.",
   promise: "Your can is the vibe. The energy starts before the first sip.",
   origin: "We looked at the RTD shelf and saw a sea of safe. Every brand played it quiet, played it beige, played it for everyone. So we built something loud on purpose — a flavour-coded system where the bottle is the vibe before you even open it.",
@@ -188,6 +188,93 @@ const jtbd = [
   },
 ];
 
+const occasions = [
+  { label: "PRE-DRINKS", icon: "22:00", color: "#00C8FF", desc: "The vibe-setter. Gets the group hyped before heading out. Usually bought at the bottle shop on the way to someone's place." },
+  { label: "FESTIVAL", icon: "☀", color: "#FF4D8A", desc: "The colour in the crowd. Visible from 20 metres. People ask what it is. That question is the point." },
+  { label: "BOTTLE SHOP IMPULSE", icon: "90s", color: "#39FF14", desc: "Decision made in 90 seconds at the fridge door. The cap colour does the selling before they read a word." },
+  { label: "SOCIAL CONTENT", icon: "📱", color: "#FF00CC", desc: "The can IS the content. Users shoot it, post it, tag it. Each SKU is a colour world designed to stop the scroll." },
+];
+
+const voiceExamples = [
+  {
+    context: "PRODUCT DESCRIPTION",
+    before: "Gee Up Vodka Premix offers a refreshing and premium drinking experience crafted for the modern consumer.",
+    after: "Five flavours. Zero apologies. Built to be the loudest thing in the fridge.",
+    color: "#00C8FF",
+  },
+  {
+    context: "SOCIAL CAPTION",
+    before: "Enjoy our new Cotton Crush flavour — a smooth, refreshing blend perfect for any occasion.",
+    after: "Electric blue. Hits like it looks. Cotton Crush is not for the beige-minded. 🔵",
+    color: "#FF4D8A",
+  },
+  {
+    context: "RETAIL SHELF TALKER",
+    before: "New Arrival — Gee Up Vodka Premix. Available in 5 great flavours.",
+    after: "FIVE FLAVOURS. PICK YOUR VIBE. GET LOUD.",
+    color: "#39FF14",
+  },
+];
+
+const shots = [
+  { title: "THE HERO SHOT", ratio: "1:1", bg: "#000", desc: "Single bottle. Dead centre. SKU background colour. No props. Shot from 20° above. Negative space is a design element.", color: "#00C8FF" },
+  { title: "THE LINEUP", ratio: "16:9", bg: "#070710", desc: "All 5 SKUs in a row. Equal heights. Slight stagger — alternating +/- 8px. Shot head-on. Used for brand campaigns and OOH.", color: "#FF4D8A" },
+  { title: "THE CLOSE-UP", ratio: "4:5", bg: "none", desc: "Cap and neck only. Cropped hard. Colour bleeds edge to edge. Strongest format for social — flavour colour is 80% of the frame.", color: "#39FF14" },
+];
+
+const oohFormats = [
+  { format: "FESTIVAL BANNER", size: "3000×1000mm", safe: "200mm", desc: "Full SKU colour background. Single bottle hero. Brand name at 25% of banner width. No body copy.", color: "#00C8FF" },
+  { format: "BOTTLE SHOP SHELF TALKER", size: "A5 (148×210mm)", safe: "8mm", desc: "Wobblers and shelf strips. Cap-colour top band. Flavour name in Anton. Price in Barlow Condensed. White logo lock-up.", color: "#FF4D8A" },
+  { format: "FRIDGE CLING", size: "A4 (210×297mm)", safe: "10mm", desc: "Glass door placement. SKU primary gradient. Portrait bottle. Legible from 3 metres at full saturation.", color: "#39FF14" },
+  { format: "SOCIAL STATIC (SQUARE)", size: "1080×1080px / 72dpi", safe: "54px", desc: "Safe zone 5% per side. Product fills 60% of frame. Bold text overlay in Anton at 10% of frame width.", color: "#A020F0" },
+  { format: "SOCIAL STORY / REEL", size: "1080×1920px / 72dpi", safe: "130px top/bottom", desc: "Top and bottom 250px are UI dead zones. Product in centre third. Flavour name in first frame for hook.", color: "#FF00CC" },
+];
+
+const activations = [
+  {
+    title: "THE DROP",
+    tag: "New Flavour Launch",
+    color: "#00C8FF",
+    steps: [
+      "72hrs before: teaser content — cap colour only, no name reveal",
+      "24hrs before: bottle silhouette leak on socials",
+      "Launch day: full reveal post + in-store activation same day",
+      "Week 1: seeded UGC with micro-influencers in the target market",
+    ],
+  },
+  {
+    title: "THE FESTIVAL STACK",
+    tag: "Event Activation",
+    color: "#FF4D8A",
+    steps: [
+      "All 5 SKUs on display — never just one flavour at an activation",
+      "Colour block merchandising: group by SKU, not random mix",
+      "Photo moment built in: branded backdrop at eye level with product",
+      "Staff wear single-SKU colour — one person per flavour",
+    ],
+  },
+  {
+    title: "THE UGC ENGINE",
+    tag: "Social Content System",
+    color: "#39FF14",
+    steps: [
+      "#LetsGeeUp and #GeeUpVodka on every owned post — establish the tags early",
+      "Repost every UGC that puts the can centre frame — reward the behaviour",
+      "Brief influencers on one rule: bottle must be visible in the first 2 seconds",
+      "Monthly colour challenge — one SKU per month gets a dedicated push",
+    ],
+  },
+];
+
+const flavourSystem = {
+  intro: "Every Gee Up SKU is a fully designed colour world — not just a flavour. The system has rules.",
+  rules: [
+    { num: "01", title: "COLOUR FIRST", desc: "The cap colour is the primary identifier. Name comes second. From 3 metres, the colour must communicate the flavour before any text is read." },
+    { num: "02", title: "NO OVERLAP", desc: "Each SKU owns its colour outright. No two flavours share a hue family. The system breaks if you introduce a second blue or a second green." },
+    { num: "03", title: "NEW SKU = NEW WORLD", desc: "Adding a flavour is not adding a colour. It requires a full world build: primary, light, mid, dark, mood, tagline, and creative direction. No half-built SKUs ship." },
+  ],
+};
+
 /* ─── SCROLL REVEAL ───────────────────────────────────────────── */
 function useScrollReveal() {
   useEffect(() => {
@@ -213,7 +300,7 @@ const capGlbMap: Record<string, string> = {
 
 function CapRender({ sku, size = "lg" }: { sku: SKU; size?: "sm" | "md" | "lg" | "xl" }) {
   const dims = {
-    sm: { w: 56,  h: 56  },
+    sm: { w: 44,  h: 44  },
     md: { w: 84,  h: 84  },
     lg: { w: 110, h: 110 },
     xl: { w: 148, h: 148 },
@@ -505,7 +592,7 @@ export default function Home() {
                 display: "flex", flexDirection: "column", alignItems: "center",
                 animationDelay: `${i * 0.4}s`,
               }}>
-                <div style={{ marginBottom: "4px" }}>
+                <div style={{ marginBottom: "-8px" }}>
                   <CapRender sku={sku} size="sm" />
                 </div>
                 <img src={sku.img} alt={sku.name} style={{
@@ -821,11 +908,23 @@ export default function Home() {
               border: `1px solid ${sku.primary}22`,
             }}>
               <div style={{
-                height: "108px",
                 background: `linear-gradient(160deg, ${sku.dark} 0%, ${sku.mid} 55%, ${sku.primary} 100%)`,
-                display: "flex", alignItems: "center", justifyContent: "center",
+                display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+                padding: "16px 12px 10px",
               }}>
                 <CapRender sku={sku} size="md" />
+                <div style={{ display: "flex", gap: "6px", marginTop: "12px", width: "100%" }}>
+                  {[
+                    { bg: sku.primary, label: "Primary" },
+                    { bg: sku.primary + "99", label: "60%" },
+                    { bg: sku.dark,    label: "Dark" },
+                  ].map(swatch => (
+                    <div key={swatch.label} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: "4px" }}>
+                      <div style={{ width: "100%", height: "20px", borderRadius: "4px", background: swatch.bg, border: "1px solid rgba(255,255,255,0.08)" }} />
+                      <span style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "9px", color: "rgba(242,242,255,0.35)", letterSpacing: "0.5px" }}>{swatch.label}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
               <div style={{ background: "var(--brand-card)", padding: "14px" }}>
                 <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "15px", color: sku.primary, letterSpacing: "0.5px", marginBottom: "6px" }}>{sku.name}</div>
@@ -1207,7 +1306,7 @@ export default function Home() {
           </div>
 
           <h3 style={{ fontFamily: "Bebas Neue, cursive", fontSize: "18px", letterSpacing: "5px", color: "rgba(242,242,255,0.35)", marginBottom: "24px" }}>JOBS TO BE DONE</h3>
-          <div className="rg-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "16px" }}>
+          <div className="rg-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "16px", marginBottom: "64px" }}>
             {jtbd.map((j, i) => (
               <div key={j.type} className={`reveal reveal-d${i + 1}`} style={{
                 background: "rgba(255,255,255,0.02)", border: `1px solid ${j.color}22`,
@@ -1219,6 +1318,23 @@ export default function Home() {
                 <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "14px", color: "rgba(242,242,255,0.42)", lineHeight: 1.55 }}>
                   <span style={{ color: j.color }}>Insight: </span>{j.insight}
                 </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Occasions */}
+          <h3 style={{ fontFamily: "Bebas Neue, cursive", fontSize: "18px", letterSpacing: "5px", color: "rgba(242,242,255,0.35)", marginBottom: "24px" }}>WHEN THEY REACH FOR GEE UP</h3>
+          <div className="rg-4" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "16px" }}>
+            {occasions.map((occ, i) => (
+              <div key={occ.label} className={`reveal reveal-d${i + 1}`} style={{
+                background: "var(--brand-card)",
+                border: `1px solid ${occ.color}33`,
+                borderTop: `3px solid ${occ.color}`,
+                borderRadius: "12px", padding: "28px 24px",
+              }}>
+                <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "36px", color: occ.color, lineHeight: 1, marginBottom: "12px" }}>{occ.icon}</div>
+                <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "16px", letterSpacing: "2px", color: "#F2F2FF", marginBottom: "10px" }}>{occ.label}</div>
+                <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "15px", color: "rgba(242,242,255,0.5)", lineHeight: 1.55 }}>{occ.desc}</p>
               </div>
             ))}
           </div>
@@ -1311,6 +1427,49 @@ export default function Home() {
             </div>
           </div>
         ))}
+      </section>
+
+      {/* ── THE FLAVOUR SYSTEM ───────────────────────────────────── */}
+      <section style={{
+        padding: "80px 48px",
+        background: "#08080F",
+        borderTop: "1px solid rgba(255,255,255,0.04)",
+        borderBottom: "1px solid rgba(255,255,255,0.04)",
+      }}>
+        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+          <div className="section-label reveal" style={{ marginBottom: "20px" }}>The Flavour System</div>
+          <div className="divider" style={{ marginBottom: "48px" }} />
+
+          {/* Intro card */}
+          <div className="reveal" style={{
+            background: "linear-gradient(135deg, rgba(0,200,255,0.06) 0%, rgba(255,0,204,0.05) 50%, rgba(57,255,20,0.04) 100%)",
+            border: "1px solid rgba(255,255,255,0.08)",
+            borderRadius: "16px", padding: "44px 48px", marginBottom: "32px",
+          }}>
+            <p style={{
+              fontFamily: "Barlow Condensed, sans-serif", fontSize: "clamp(20px, 2.2vw, 28px)",
+              fontStyle: "italic", fontWeight: 500, color: "rgba(242,242,255,0.8)",
+              lineHeight: 1.55, maxWidth: "860px",
+            }}>{flavourSystem.intro}</p>
+          </div>
+
+          <div className="rg-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "16px" }}>
+            {flavourSystem.rules.map((rule, i) => {
+              const ruleColors = ["#00C8FF", "#FF4D8A", "#39FF14"];
+              const c = ruleColors[i];
+              return (
+                <div key={rule.num} className={`reveal reveal-d${i + 1}`} style={{
+                  background: "var(--brand-card)", borderRadius: "14px", padding: "36px",
+                  border: `1px solid ${c}22`, borderTop: `3px solid ${c}`,
+                }}>
+                  <div style={{ fontFamily: "Anton, sans-serif", fontSize: "48px", color: `${c}30`, lineHeight: 1, marginBottom: "12px" }}>{rule.num}</div>
+                  <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "18px", letterSpacing: "2px", color: c, marginBottom: "12px" }}>{rule.title}</div>
+                  <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "16px", color: "rgba(242,242,255,0.55)", lineHeight: 1.6 }}>{rule.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </section>
 
       {/* ── SKU DATA TABLE ────────────────────────────────────── */}
@@ -1584,7 +1743,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="rg-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
+        <div className="rg-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginBottom: "56px" }}>
           {[
             { title: "DO'S",   color: "#39FF14", items: dosDonts.dos },
             { title: "DON'TS", color: "#FF4D8A", items: dosDonts.donts },
@@ -1604,6 +1763,33 @@ export default function Home() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Voice in Action */}
+        <div>
+          <h3 style={{ fontFamily: "Bebas Neue, cursive", fontSize: "18px", letterSpacing: "5px", color: "rgba(242,242,255,0.35)", marginBottom: "24px" }}>VOICE IN ACTION</h3>
+          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+            {voiceExamples.map((ex, i) => (
+              <div key={ex.context} className={`reveal reveal-d${i + 1}`} style={{
+                background: "var(--brand-card)", border: "1px solid var(--brand-border)",
+                borderRadius: "14px", overflow: "hidden",
+              }}>
+                <div style={{ padding: "16px 28px", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                  <span style={{ fontFamily: "Bebas Neue, cursive", fontSize: "12px", letterSpacing: "4px", color: ex.color }}>{ex.context}</span>
+                </div>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0" }}>
+                  <div style={{ padding: "24px 28px", background: "rgba(255,50,50,0.06)", borderRight: "1px solid rgba(255,255,255,0.05)" }}>
+                    <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "11px", letterSpacing: "3px", color: "rgba(255,100,100,0.6)", marginBottom: "10px" }}>BEFORE</div>
+                    <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "16px", color: "rgba(242,242,255,0.45)", lineHeight: 1.6 }}>{ex.before}</p>
+                  </div>
+                  <div style={{ padding: "24px 28px", background: `${ex.color}0D` }}>
+                    <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "11px", letterSpacing: "3px", color: ex.color, marginBottom: "10px" }}>AFTER</div>
+                    <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "16px", color: "rgba(242,242,255,0.85)", lineHeight: 1.6, fontWeight: 600 }}>{ex.after}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -1643,22 +1829,85 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="reveal reveal-d1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
-              {SKUs.slice(0, 4).map(sku => (
-                <div key={sku.id} style={{
-                  background: `linear-gradient(160deg, ${sku.dark} 0%, ${sku.mid} 100%)`,
-                  borderRadius: "14px", border: `1px solid ${sku.primary}20`,
-                  padding: "28px 16px 16px",
-                  display: "flex", flexDirection: "column", alignItems: "center", gap: "12px",
+            <div className="reveal reveal-d1" style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+              {shots.map((shot, si) => (
+                <div key={shot.title} style={{
+                  background: "var(--brand-card)", border: `1px solid ${shot.color}22`,
+                  borderRadius: "14px", overflow: "hidden",
                 }}>
-                  <img src={sku.img} alt={sku.name} style={{
-                    height: "152px", width: "auto", objectFit: "contain",
-                    filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.35))",
-                  }} />
-                  <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "13px", letterSpacing: "2px", color: sku.primary, textAlign: "center" }}>{sku.name}</div>
+                  {/* Frame mockup */}
+                  <div style={{
+                    background: shot.bg === "none" ? `linear-gradient(135deg, ${shot.color}22, ${shot.color}08)` : shot.bg,
+                    padding: "28px", display: "flex", alignItems: "center", justifyContent: "center",
+                    minHeight: "120px", position: "relative", borderBottom: `1px solid ${shot.color}22`,
+                  }}>
+                    <div style={{
+                      border: `1px dashed ${shot.color}55`, borderRadius: "6px",
+                      width: si === 0 ? "80px" : si === 1 ? "100%" : "72px",
+                      height: si === 0 ? "80px" : si === 1 ? "56px" : "90px",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      maxWidth: si === 1 ? "180px" : undefined,
+                    }}>
+                      <img src={SKUs[si].img} alt={shot.title} style={{
+                        height: si === 1 ? "44px" : "64px", width: "auto", objectFit: "contain",
+                        filter: `drop-shadow(0 2px 8px ${shot.color}44)`,
+                      }} />
+                    </div>
+                    <div style={{
+                      position: "absolute", top: "10px", right: "12px",
+                      fontFamily: "Bebas Neue, cursive", fontSize: "13px", letterSpacing: "2px",
+                      color: shot.color, background: `${shot.color}18`, borderRadius: "4px",
+                      padding: "3px 10px",
+                    }}>{shot.ratio}</div>
+                  </div>
+                  <div style={{ padding: "20px 24px" }}>
+                    <div style={{ fontFamily: "Anton, sans-serif", fontSize: "18px", color: "#F2F2FF", marginBottom: "6px", letterSpacing: "0.3px" }}>{shot.title}</div>
+                    <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "14px", color: "rgba(242,242,255,0.5)", lineHeight: 1.55 }}>{shot.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 08b OUT-OF-HOME & PRINT ───────────────────────────── */}
+      <section style={{
+        padding: "80px 48px",
+        background: "#08080F",
+        borderTop: "1px solid rgba(255,255,255,0.04)",
+        borderBottom: "1px solid rgba(255,255,255,0.04)",
+      }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div className="section-label reveal" style={{ marginBottom: "20px" }}>08b / Out-of-Home & Print</div>
+          <div className="divider" style={{ marginBottom: "64px" }} />
+
+          <div className="rg-2" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "16px", marginBottom: "32px" }}>
+            {oohFormats.map((fmt, i) => (
+              <div key={fmt.format} className={`reveal reveal-d${Math.min(i + 1, 5)}`} style={{
+                background: "var(--brand-card)", borderRadius: "12px", overflow: "hidden",
+                display: "flex", alignItems: "stretch",
+                border: `1px solid ${fmt.color}22`,
+              }}>
+                <div style={{ width: "4px", background: fmt.color, flexShrink: 0 }} />
+                <div style={{ padding: "24px 28px", flex: 1 }}>
+                  <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "17px", letterSpacing: "2px", color: fmt.color, marginBottom: "6px" }}>{fmt.format}</div>
+                  <div style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "15px", fontWeight: 600, color: "rgba(242,242,255,0.7)", letterSpacing: "0.5px", marginBottom: "4px", fontVariantNumeric: "tabular-nums" }}>{fmt.size}</div>
+                  <div style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "13px", color: fmt.color, letterSpacing: "1px", marginBottom: "10px" }}>Safe zone: {fmt.safe}</div>
+                  <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "15px", color: "rgba(242,242,255,0.45)", lineHeight: 1.55 }}>{fmt.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="reveal" style={{
+            background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.07)",
+            borderRadius: "10px", padding: "20px 28px",
+          }}>
+            <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "14px", color: "rgba(242,242,255,0.35)", lineHeight: 1.6, letterSpacing: "0.3px" }}>
+              <span style={{ color: "rgba(242,242,255,0.55)", fontWeight: 600 }}>Print export: </span>
+              All print files must be exported as CMYK PDF/X-4. Colour profiles: Coated FOGRA39. Screen: sRGB.
+            </p>
           </div>
         </div>
       </section>
@@ -1740,7 +1989,7 @@ export default function Home() {
                 textAlign: "center", animationDelay: `${i * 0.35}s`,
               }}>
                 {/* Cap above bottle */}
-                <div style={{ display: "flex", justifyContent: "center", marginBottom: "6px" }}>
+                <div style={{ display: "flex", justifyContent: "center", marginBottom: "-8px" }}>
                   <CapRender sku={sku} size="sm" />
                 </div>
                 <img src={sku.img} alt={sku.name} style={{
@@ -1753,6 +2002,41 @@ export default function Home() {
                     fontSize: "clamp(12px, 1.2vw, 15px)", letterSpacing: "2px", color: sku.primary,
                   }}>{sku.name}</div>
                   <div style={{ width: "20px", height: "3px", background: sku.primary, borderRadius: "2px", margin: "8px auto 0" }} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 10 ACTIVATION PLAYBOOK ───────────────────────────────── */}
+      <section style={{
+        padding: "120px 48px",
+        background: "#08080F",
+        borderTop: "1px solid rgba(255,255,255,0.04)",
+        borderBottom: "1px solid rgba(255,255,255,0.04)",
+      }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div className="section-label reveal" style={{ marginBottom: "20px" }}>10 / Activation Playbook</div>
+          <div className="divider" style={{ marginBottom: "64px" }} />
+
+          <div className="rg-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px" }}>
+            {activations.map((act, i) => (
+              <div key={act.title} className={`reveal reveal-d${i + 1}`} style={{
+                background: "var(--brand-card)", borderRadius: "14px", padding: "36px",
+                borderTop: `3px solid ${act.color}`,
+                border: `1px solid ${act.color}22`,
+                borderTopColor: act.color,
+              }}>
+                <div style={{ fontFamily: "Bebas Neue, cursive", fontSize: "12px", letterSpacing: "3px", color: act.color, marginBottom: "12px" }}>{act.tag}</div>
+                <div style={{ fontFamily: "Anton, sans-serif", fontSize: "clamp(28px, 3vw, 40px)", color: "#F2F2FF", lineHeight: 0.95, marginBottom: "28px", letterSpacing: "-0.5px" }}>{act.title}</div>
+                <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+                  {act.steps.map((step, si) => (
+                    <div key={si} style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
+                      <span style={{ fontFamily: "Bebas Neue, cursive", fontSize: "13px", letterSpacing: "1px", color: act.color, flexShrink: 0, paddingTop: "2px", minWidth: "22px" }}>0{si + 1}</span>
+                      <p style={{ fontFamily: "Barlow Condensed, sans-serif", fontSize: "15px", color: "rgba(242,242,255,0.6)", lineHeight: 1.55 }}>{step}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
